@@ -19,6 +19,9 @@ local ThePrimeagenGroup = augroup('ThePrimeagen', {})
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
 
+vim.api.nvim_set_hl(0, "Normal",   { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+
 function R(name)
     require("plenary.reload").reload_module(name)
 end
@@ -52,11 +55,19 @@ autocmd('BufEnter', {
         if vim.bo.filetype == "zig" then
             pcall(vim.cmd.colorscheme, "tokyonight-night")
         else
-            pcall(vim.cmd.colorscheme, "rose-pine-moon")
+            pcall(vim.cmd.colorscheme, "kanagawa-dark")
         end
     end
 })
 
+
+autocmd("ColorScheme", {
+    group = ThePrimeagenGroup,
+    callback = function()
+        vim.api.nvim_set_hl(0, "Normal",   { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+    end,
+})
 
 autocmd('LspAttach', {
     group = ThePrimeagenGroup,

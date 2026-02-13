@@ -87,5 +87,32 @@ return {
         end
     },
 
+{
+    "rebelot/kanagawa.nvim",
+    name = "kanagawa",
+    lazy = false,
+    config = function()
+        require("kanagawa").setup({
+            compile = true,            -- faster startup
+            undercurl = true,
+            commentStyle = { italic = true },
+            keywordStyle = { italic = false },
+            statementStyle = { bold = true },
+            typeStyle = {},
+            variablebuiltinStyle = { italic = true },
+            specialReturn = true,
+            background = { dark = "wave" }, -- choose: "wave", "dragon", "lotus"
+            colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
+        })
+
+        -- Apply the colorscheme
+        vim.cmd.colorscheme("kanagawa")
+
+        -- Preserve transparency
+        vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+    end,
+},
 
 }
