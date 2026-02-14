@@ -15,6 +15,9 @@ return {
                     local commands = {
                         -- ESSENTIAL - Most Used
                         { cmd = "Ctrl+p", desc = "Find Git files (like VS Code)", category = "⭐ ESSENTIAL" },
+                        { cmd = ":e filename", desc = "Create/open file (save with :w)", category = "⭐ ESSENTIAL" },
+                        { cmd = ":w", desc = "Save file", category = "⭐ ESSENTIAL" },
+                        { cmd = ":q", desc = "Quit", category = "⭐ ESSENTIAL" },
                         { cmd = "gd", desc = "Go to definition", category = "⭐ ESSENTIAL" },
                         { cmd = "K", desc = "Show hover documentation", category = "⭐ ESSENTIAL" },
                         { cmd = "Ctrl+o", desc = "Jump back to previous location", category = "⭐ ESSENTIAL" },
@@ -26,12 +29,27 @@ return {
                         { cmd = "p", desc = "Paste", category = "⭐ ESSENTIAL" },
                         { cmd = "Space s", desc = "Find & replace word under cursor", category = "⭐ ESSENTIAL" },
                         { cmd = "za", desc = "Toggle fold (open/close)", category = "⭐ ESSENTIAL" },
+                        { cmd = "gcc", desc = "Toggle comment on line", category = "⭐ ESSENTIAL" },
+                        { cmd = "gc (visual)", desc = "Comment selected lines", category = "⭐ ESSENTIAL" },
                         
                         -- FILE NAVIGATION
                         { cmd = "Space p f", desc = "Find ALL files in project", category = "📁 Files" },
                         { cmd = "Space p v", desc = "Open file explorer", category = "📁 Files" },
                         { cmd = "Space p w s", desc = "Search word under cursor in project", category = "📁 Files" },
                         { cmd = "Space v h", desc = "Search help tags", category = "📁 Files" },
+                        
+                        -- FILE MANAGEMENT
+                        { cmd = ":e path/to/file", desc = "Create/open file (save with :w)", category = "📄 File Ops" },
+                        { cmd = ":e %:h/newfile", desc = "Create file in same directory", category = "📄 File Ops" },
+                        { cmd = ":w", desc = "Save file", category = "📄 File Ops" },
+                        { cmd = ":w newname", desc = "Save as (rename)", category = "📄 File Ops" },
+                        { cmd = ":saveas newname", desc = "Save as (rename)", category = "📄 File Ops" },
+                        { cmd = "% (in netrw)", desc = "Create new file in explorer", category = "📄 File Ops" },
+                        { cmd = "d (in netrw)", desc = "Create new directory in explorer", category = "📄 File Ops" },
+                        { cmd = "R (in netrw)", desc = "Rename file in explorer", category = "📄 File Ops" },
+                        { cmd = "D (in netrw)", desc = "Delete file in explorer", category = "📄 File Ops" },
+                        { cmd = ":pwd", desc = "Show current directory", category = "📄 File Ops" },
+                        { cmd = ":cd path", desc = "Change directory", category = "📄 File Ops" },
                         
                         -- HARPOON (Quick Files)
                         { cmd = "Space a", desc = "Add file to Harpoon", category = "🎯 Harpoon" },
@@ -66,6 +84,16 @@ return {
                         { cmd = ".", desc = "Repeat last command", category = "✏️ Edit" },
                         { cmd = "Space p (visual)", desc = "Paste without losing register", category = "✏️ Edit" },
                         { cmd = "Space d", desc = "Delete to void register", category = "✏️ Edit" },
+                        
+                        -- COMMENTING
+                        { cmd = "gcc", desc = "Toggle comment line", category = "💬 Comment" },
+                        { cmd = "gc (visual)", desc = "Comment selection", category = "💬 Comment" },
+                        { cmd = "gcap", desc = "Comment paragraph", category = "💬 Comment" },
+                        { cmd = "gc2j", desc = "Comment current + 2 lines below", category = "💬 Comment" },
+                        { cmd = "gc$", desc = "Comment from cursor to end of line", category = "💬 Comment" },
+                        { cmd = "gcip", desc = "Comment inside paragraph", category = "💬 Comment" },
+                        { cmd = "gbc", desc = "Toggle block comment", category = "💬 Comment" },
+                        { cmd = "gb (visual)", desc = "Block comment selection", category = "💬 Comment" },
                         
                         -- MOVEMENT
                         { cmd = "w", desc = "Next word", category = "⬆️ Move" },
@@ -110,6 +138,12 @@ return {
                         { cmd = "Space t t", desc = "Toggle Trouble diagnostics", category = "🎨 Format" },
                         
                         -- UTILITIES
+                        { cmd = ":w", desc = "Save file", category = "💾 Save/Quit" },
+                        { cmd = ":q", desc = "Quit", category = "💾 Save/Quit" },
+                        { cmd = ":wq", desc = "Save and quit", category = "💾 Save/Quit" },
+                        { cmd = ":q!", desc = "Quit without saving", category = "💾 Save/Quit" },
+                        { cmd = ":wqa", desc = "Save all and quit", category = "💾 Save/Quit" },
+                        { cmd = ":qa!", desc = "Quit all without saving", category = "💾 Save/Quit" },
                         { cmd = "Space u", desc = "Toggle Undotree", category = "🛠️ Utils" },
                         { cmd = "Space z z", desc = "Zen mode (width 90)", category = "🛠️ Utils" },
                         { cmd = "Space z Z", desc = "Zen mode (minimal)", category = "🛠️ Utils" },

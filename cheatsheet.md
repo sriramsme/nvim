@@ -7,7 +7,6 @@
 ## 🔑 KEY NOTATION GUIDE
 
 Understanding the symbols:
-
 - **`<C-x>`** = **Ctrl + x** (hold Ctrl, press x)
 - **`<M-x>`** = **Alt + x** (M = "Meta" key, which is Alt)
 - **`<S-x>`** = **Shift + x**
@@ -15,8 +14,7 @@ Understanding the symbols:
 - **`<CR>`** = **Enter** (Carriage Return)
 - **`<Esc>`** = **Escape key**
 
-### Examples
-
+### Examples:
 - `<C-p>` → Press **Ctrl + p** together
 - `<M-1>` → Press **Alt + 1** together
 - `<leader>pf` → Press **Space, then p, then f** (in sequence)
@@ -29,71 +27,96 @@ Understanding the symbols:
 **These are the most important commands to master first:**
 
 ### File Navigation
-
 - `<C-p>` - **Find Git files** (like VS Code Ctrl+P)
 - `<leader>pf` - Find ALL files in project (Space p f)
 
 ### Code Navigation
-
 - `gd` - **Go to definition** (like VS Code Ctrl+Click)
 - `<C-o>` - **Jump back** to previous location (Ctrl + o)
 - `<C-i>` - **Jump forward** (Ctrl + i)
 - `<leader>vrr` - Find all **references** (Space v r r)
 
 ### Documentation & Errors
-
 - `K` - **Show hover documentation** (like VS Code hover)
 - `<leader>vd` - Show diagnostic/error details (Space v d)
 
 ### Editing Basics
-
 - `u` - **Undo**
 - `<C-r>` - **Redo** (Ctrl + r)
 - `i` - Enter **Insert mode** (start typing)
 - `Esc` - Exit to **Normal mode**
 
 ### Code Folding
-
 - `za` - **Toggle fold** (open/close code block)
 - `zR` - Open ALL folds
 - `zM` - Close ALL folds
 
 ### Auto-Complete (in Insert mode)
-
 - `<C-n>` - Next suggestion (Ctrl + n)
 - `<C-p>` - Previous suggestion (Ctrl + p)
 - `<C-y>` - Accept suggestion (Ctrl + y)
 - `<C-Space>` - Trigger completion manually
 
 ### Search
-
 - `<leader>ps` - **Search text in project** (Space p s)
 - `<leader>pws` - Search word under cursor (Space p w s)
 - `<leader>s` - **Find & replace** word under cursor (Space s)
 
 ### Clipboard (System)
-
 - `<leader>y` - Copy to clipboard (Space y, in visual mode)
 - `<leader>Y` - Copy line to clipboard (Space Y)
 - `p` - Paste
 - `<leader>p` - Paste (better in visual mode)
 
-### Quick File Switching (Harpoon)
+### Commenting
+- `gcc` - Toggle comment on current line
+- `gc` (visual mode) - Comment selected lines
+- `gcap` - Comment entire paragraph
+- `gc2j` - Comment current line + 2 lines below
+- `gc$` - Comment from cursor to end of line
+- `gcip` - Comment inside paragraph
+- `gbc` - Toggle block comment (/* */)
+- `gb` (visual mode) - Block comment selection
 
+### Quick File Switching (Harpoon)
 - `<leader>a` - Add current file to Harpoon
 - `<C-e>` - Toggle Harpoon menu (Ctrl + e)
 - `<M-1>` / `<M-2>` / `<M-3>` / `<M-4>` - Jump to files 1-4 (Alt + number)
 
 ---
 
+## 📄 FILE CREATION & MANAGEMENT
+
+### Creating Files
+- `:e path/to/file.js` - Create/open file (save with `:w` to actually create)
+- `:e %:h/newfile.js` - Create file in same directory as current file
+- `%` (in netrw) - Create new file in file explorer
+- `d` (in netrw) - Create new directory in file explorer
+
+### Renaming Files
+- `R` (in netrw) - Rename file in explorer (easiest!)
+- `:w newname.js` - Save current file with new name
+- `:saveas newname.js` - Save as (creates copy)
+- `:!mv old.js new.js` - Rename via shell command
+
+### Deleting Files
+- `D` (in netrw) - Delete file in explorer
+- `:!rm filename` - Delete via shell command
+
+### File Info
+- `:pwd` - Show current working directory
+- `:cd path` - Change directory
+- `:e .` - Open current directory in netrw
+- `%:p` - Full path of current file
+
+---
+
 ## 🗂️ FILE NAVIGATION & MANAGEMENT
 
 ### File Explorer (Netrw)
-
 - `<leader>pv` - Open file explorer (Ex)
 
 ### Telescope (Fuzzy Finder)
-
 - `<leader>pf` - Find files (project files)
 - `<C-p>` - Find Git files
 - `<leader>ps` - Grep search (prompts for input)
@@ -102,7 +125,6 @@ Understanding the symbols:
 - `<leader>vh` - Search help tags
 
 ### Harpoon (Quick File Navigation)
-
 - `<leader>a` - Add current file to Harpoon list
 - `<leader>A` - Prepend current file to Harpoon list
 - `<C-e>` - Toggle Harpoon quick menu
@@ -116,7 +138,6 @@ Understanding the symbols:
 ## ✏️ EDITING & TEXT MANIPULATION
 
 ### Movement Enhancements
-
 - `J` - Join line below (cursor stays in place)
 - `<C-d>` - Half page down (cursor centered)
 - `<C-u>` - Half page up (cursor centered)
@@ -125,23 +146,26 @@ Understanding the symbols:
 - `=ap` - Auto-indent paragraph (cursor returns to original position)
 
 ### Visual Mode Movement
-
 - `J` (visual) - Move selected lines down
 - `K` (visual) - Move selected lines up
 
 ### Clipboard Operations
-
 - `<leader>y` - Yank to system clipboard (normal/visual)
 - `<leader>Y` - Yank line to system clipboard
 - `<leader>p` (visual) - Paste without losing register
 - `<leader>d` - Delete to void register (don't yank)
 
-### Quick Replacements
+### Commenting
+- `gcc` - Toggle comment on current line
+- `gc{motion}` - Comment using motion (e.g., `gcap` for paragraph, `gc2j` for 2 lines down)
+- `gc` (visual mode) - Comment selected lines
+- `gbc` - Toggle block comment (/* */)
+- `gb` (visual mode) - Block comment selection
 
+### Quick Replacements
 - `<leader>s` - Substitute word under cursor (interactive)
 
 ### Code Snippets (Go Error Handling)
-
 - `<leader>ee` - Insert Go error return
 - `<leader>ea` - Insert assert.NoError(err)
 - `<leader>ef` - Insert Go log.Fatalf error
@@ -152,7 +176,6 @@ Understanding the symbols:
 ## 🔧 LSP (Language Server Protocol)
 
 ### Navigation
-
 - `gd` - Go to definition
 - `K` - Hover documentation
 - `<leader>vws` - Workspace symbol search
@@ -161,21 +184,18 @@ Understanding the symbols:
 - `]d` - Previous diagnostic
 
 ### Actions
-
 - `<leader>vd` - Open diagnostic float
 - `<leader>vca` - Code actions
 - `<leader>vrn` - Rename symbol
 - `<C-h>` (insert) - Signature help
 
 ### Completion (in insert mode)
-
 - `<C-p>` - Previous completion item
 - `<C-n>` - Next completion item
 - `<C-y>` - Confirm completion
 - `<C-Space>` - Trigger completion manually
 
 ### LSP Management
-
 - `<leader>zig` - Restart LSP
 
 ---
@@ -183,7 +203,6 @@ Understanding the symbols:
 ## 🐛 DEBUGGING (DAP)
 
 ### Debug Controls
-
 - `<F8>` - Continue / Start debugging
 - `<F10>` - Step over
 - `<F11>` - Step into
@@ -192,7 +211,6 @@ Understanding the symbols:
 - `<leader>B` - Set conditional breakpoint
 
 ### Debug UI Panels
-
 - `<leader>dr` - Toggle REPL UI
 - `<leader>ds` - Toggle Stacks UI
 - `<leader>dw` - Toggle Watches UI
@@ -229,11 +247,9 @@ Understanding the symbols:
 ## 🎨 CODE FORMATTING & QUALITY
 
 ### Formatting
-
 - `<leader>f` - Format current buffer
 
 ### Diagnostics (Trouble)
-
 - `<leader>tt` - Toggle Trouble diagnostics window
 - `[t` - Next trouble item
 - `]t` - Previous trouble item
@@ -289,11 +305,9 @@ Understanding the symbols:
 ## 🛠️ UTILITY
 
 ### File Permissions
-
 - `<leader>x` - Make current file executable (chmod +x)
 
 ### Misc
-
 - `<leader><leader>` - Source current file (reload config)
 - `<leader>ca` - Cellular automaton animation (make it rain)
 - `<C-c>` (insert) - Exit insert mode (same as Esc)
@@ -304,7 +318,6 @@ Understanding the symbols:
 ## 📚 GENERAL VIM COMMANDS (Built-in)
 
 ### Basic Motion
-
 - `h/j/k/l` - Left/Down/Up/Right
 - `w` - Next word
 - `b` - Previous word
@@ -319,14 +332,12 @@ Understanding the symbols:
 - `<C-i>` - **Jump forward** (Ctrl + i)
 
 ### Search
-
 - `/` - Search forward
 - `?` - Search backward
 - `*` - Search word under cursor (forward)
 - `#` - Search word under cursor (backward)
 
 ### Editing
-
 - `i` - Insert before cursor
 - `a` - Insert after cursor
 - `I` - Insert at start of line
@@ -342,7 +353,6 @@ Understanding the symbols:
 - `.` - Repeat last command
 
 ### Visual Mode
-
 - `v` - Visual character mode
 - `V` - Visual line mode
 - `<C-v>` - Visual block mode
@@ -350,7 +360,6 @@ Understanding the symbols:
 - `<` - Indent left
 
 ### Windows
-
 - `<C-w>s` - Split horizontal
 - `<C-w>v` - Split vertical
 - `<C-w>h/j/k/l` - Navigate between windows
@@ -358,14 +367,12 @@ Understanding the symbols:
 - `<C-w>=` - Equalize window sizes
 
 ### Buffers
-
 - `:bn` - Next buffer
 - `:bp` - Previous buffer
 - `:bd` - Delete buffer
 - `:ls` - List buffers
 
 ### Macros
-
 - `q{letter}` - Start recording macro
 - `q` - Stop recording
 - `@{letter}` - Play macro
